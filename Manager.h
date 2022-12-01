@@ -1,0 +1,5 @@
+class Manager {
+    public:
+
+    private:
+};
