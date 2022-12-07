@@ -14,6 +14,7 @@ class Territory{
         void showAddress();
         void setTroops(int);
         int getTroops();
+        void showNeighbours();
 
     private:
         std::string name;

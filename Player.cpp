@@ -3,7 +3,7 @@
 Player::Player(int number): number(number) {
 }
 
-void Player::addTerritories(Territory& territory){
+void Player::addTerritory(Territory& territory){
     territories.push_back(territory);
 }
 

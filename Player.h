@@ -3,7 +3,7 @@
 class Player{
     public:
         Player(int);
-        void addTerritories(Territory&);
+        void addTerritory(Territory&);
         std::vector<Territory> getTerritories();
         void showTerritories();
         int getNumber();
@@ -14,5 +14,4 @@ class Player{
         int number;
         bool turn {false};
         std::vector<Territory> territories;
-        
 };

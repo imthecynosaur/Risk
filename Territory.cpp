@@ -15,7 +15,7 @@ std::vector<Territory> Territory::getNeighbours(){
 }
 
 void Territory::show(){
-    std::cout << name << " ";
+    std::cout << name << std::endl;
 }
 
 void Territory::addNeighbour(Territory& territory){
@@ -32,4 +32,11 @@ void Territory::setTroops(int value){
 
 int Territory::getTroops(){
     return troops;
+}
+
+void Territory::showNeighbours(){
+    std::cout << "showing neighbours for " << name << std::endl;
+    for(auto& territory : neighbours){
+        territory.show();
+    }
 }
