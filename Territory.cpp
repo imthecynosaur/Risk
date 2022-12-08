@@ -15,7 +15,7 @@ std::vector<Territory> Territory::getNeighbours(){
 }
 
 void Territory::show(){
-    std::cout << name << std::endl;
+    std::cout << name << "  ";
 }
 
 void Territory::addNeighbour(Territory& territory){

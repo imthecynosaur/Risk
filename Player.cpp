@@ -14,8 +14,8 @@ std::vector<Territory> Player::getTerritories(){
 void Player::showTerritories(){
     for(auto& territory : territories){
         territory.show();
-        std::cout << std::endl;
     }
+    std::cout << std::endl;
 }
 
 int Player::getNumber(){

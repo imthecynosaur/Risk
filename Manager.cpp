@@ -1,5 +1,51 @@
 #include "Manager.h"
 
+
+
+
+void Manager::startGame(int playerCount){
+    createPlayer(playerCount);
+    setBoard();
+    distributeTerritories();
+}
+
+void Manager::distributeTerritories(){
+    std::vector<int> territoryIDs{};
+    for (auto& continent : continents){
+        for (auto& territory : continent){
+            territoryIDs.push_back(territory.second);
+        }
+    }
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(territoryIDs.begin(), territoryIDs.end(), g);
+    
+    for (size_t i{1}; i <= 42; i++){
+        players[i % players.size()].addTerritory(getTerritoryByNumber(territoryIDs[i-1]));
+    }
+
+    for (auto& player : players){
+        std::cout << "player number " << player.getNumber() << " :" << std::endl;
+        player.showTerritories();
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    
+    
+
+}
+
+int Manager::generateRandomNumber(int begin, int end){
+    std::random_device seeder;
+    const auto seed {seeder.entropy() ? seeder() : time(nullptr)};
+    std::mt19937 engine {static_cast<std::mt19937::result_type>(seed)};
+    std::uniform_int_distribution<int> distribution {begin, end};
+    return distribution(engine);
+}
+
+
+
 Territory& Manager::getTerritoryByName(std::string name){
     for (auto& territory: territories){
         if (territory.getName() == name){

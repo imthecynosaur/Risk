@@ -1,13 +1,14 @@
 #include <unordered_map>
+#include <random>
+#include <algorithm>
 #include "Player.h"
+
+
+
 class Manager {
     public:
-        Territory& getTerritoryByName(std::string);
-        Territory& getTerritoryByNumber(int);
-        void createPlayer(int);
-        void setBoard();
+        void startGame(int);
         void showTerritories();
-        void startGame();
         std::vector<Player> getPlayers();
         
 
@@ -15,6 +16,14 @@ class Manager {
         std::vector<Player> players;
         std::vector<Territory> territories;
         void adjustNeighoburs(Territory&, std::vector<int>);
+        void createPlayer(int);
+        void setBoard();
+        void distributeTerritories();
+        int generateRandomNumber(int, int);
+        Territory& getTerritoryByName(std::string);
+        Territory& getTerritoryByNumber(int);
+
+        
 
 
 
