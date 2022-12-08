@@ -1,8 +1,5 @@
 #include "Manager.h"
 
-
-
-
 void Manager::startGame(int playerCount){
     createPlayer(playerCount);
     setBoard();
@@ -25,12 +22,12 @@ void Manager::distributeTerritories(){
         players[i % players.size()].addTerritory(getTerritoryByNumber(territoryIDs[i-1]));
     }
 
-    for (auto& player : players){
-        std::cout << "player number " << player.getNumber() << " :" << std::endl;
-        player.showTerritories();
-        std::cout << std::endl;
-        std::cout << std::endl;
-    }
+    // for (auto& player : players){
+    //     std::cout << "player number " << player.getNumber() << " :" << std::endl;
+    //     player.showTerritories();
+    //     std::cout << std::endl;
+    //     std::cout << std::endl;
+    // }
     
     
 

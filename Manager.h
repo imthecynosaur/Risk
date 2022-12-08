@@ -1,6 +1,7 @@
 #include <unordered_map>
 #include <random>
 #include <algorithm>
+#include <optional>
 #include "Player.h"
 
 
@@ -23,7 +24,6 @@ class Manager {
         Territory& getTerritoryByName(std::string);
         Territory& getTerritoryByNumber(int);
 
-        
 
 
 

@@ -5,9 +5,6 @@ int main() {
 
     manager.startGame(4);
     // manager.showTerritories();
-
-    
-    
     
 }
 
