@@ -19,7 +19,7 @@ class Territory{
     private:
         std::string name;
         int number;
-        int troops;
+        int troops{1};
         std::vector<Territory> neighbours;
 
 };

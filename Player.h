@@ -9,6 +9,8 @@ class Player{
         int getNumber();
         bool getTurn();
         void setTrun();
+        void deployTroops(int);
+        void showStatus();
 
     private:
         int number;

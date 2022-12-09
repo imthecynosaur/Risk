@@ -21,16 +21,6 @@ void Manager::distributeTerritories(){
     for (size_t i{1}; i <= 42; i++){
         players[i % players.size()].addTerritory(getTerritoryByNumber(territoryIDs[i-1]));
     }
-
-    // for (auto& player : players){
-    //     std::cout << "player number " << player.getNumber() << " :" << std::endl;
-    //     player.showTerritories();
-    //     std::cout << std::endl;
-    //     std::cout << std::endl;
-    // }
-    
-    
-
 }
 
 int Manager::generateRandomNumber(int begin, int end){
