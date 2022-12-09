@@ -4,6 +4,40 @@ void Manager::startGame(int playerCount){
     createPlayer(playerCount);
     setBoard();
     distributeTerritories();
+    deploytroops();
+}
+
+void Manager::deploytroops(){
+    int initialTroops{};
+    switch (players.size())
+    {
+        case 2:
+            initialTroops = 5;
+            break;
+        case 3:
+            initialTroops = 35;
+            break;
+
+        case 4:
+            initialTroops = 30;
+            break;
+        
+        case 5:
+            initialTroops = 25;
+            break;
+        
+        default:
+            break;
+    }
+
+    while (initialTroops > 0){
+        for (auto& player : players){
+            std::cout << "PLAYER NUMBER " << player.getNumber() << ":" << std::endl;
+            std::cout << std::endl;
+            player.deployTroops(std::min(3, initialTroops));
+        }
+        initialTroops -= std::min(3, initialTroops);
+    }
 }
 
 void Manager::distributeTerritories(){
