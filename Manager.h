@@ -1,6 +1,4 @@
-#include <unordered_map>
 #include <random>
-#include <algorithm>
 #include <optional>
 #include "Player.h"
 
@@ -24,6 +22,9 @@ class Manager {
         int generateRandomNumber(int, int);
         Territory& getTerritoryByName(std::string);
         Territory& getTerritoryByNumber(int);
+        void gameLoop();
+        bool winCondition {false};
+        bool checkForWin();
     
 
 

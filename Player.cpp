@@ -5,6 +5,7 @@ Player::Player(int number): number(number) {
 
 void Player::addTerritory(Territory& territory){
     territories.push_back(territory);
+    territoryNumbers.push_back(territory.getNumber());
 }
 
 std::vector<Territory> Player::getTerritories(){
@@ -31,7 +32,10 @@ void Player::setTrun(){
 }
 
 void Player::deployTroops(int troopsCount){
+    
     while (troopsCount > 0){
+        std::cout << "Remaining troops: " << troopsCount << std::endl;
+        std::cout << std::endl;
         std::cout << "[PLAYER " << getNumber() << "]: " << "where should troops be deployed, sir ?!" << std::endl;
         showStatus();
         int choice{};
@@ -69,6 +73,31 @@ void Player::showStatus(){
         std::cout << ": " << territory.getTroops() << std::endl;
         territoryNumber++;
     }
+}
+
+int Player::setDraftCount(){
+    int draftCount{3};
+    draftCount += checkForContinents();
+    return draftCount;
+}
+
+int Player::checkForContinents(){
+    int continentBouns{};
+    for (auto& continent : continentBonusTemplate){
+        bool isComplete {true};
+        for (int territoryNumber : continent.first){
+            if (std::find(territoryNumbers.begin(), territoryNumbers.end(), territoryNumber) != territoryNumbers.end())
+                continue;
+            else:
+                isComplete = false;
+                break;
+        }
+        if (isComplete) {
+            continentBouns += continent.second;
+            std::cout << "getting " << continent.second << "bonus troops" << std::endl;
+        }
+    }
+    return continentBouns;
 }
 
 
