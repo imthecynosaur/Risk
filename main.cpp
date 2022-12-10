@@ -3,7 +3,7 @@
 int main() {
     Manager manager;
 
-    manager.startGame(4);
+    manager.startGame(2);
     // manager.showTerritories();
 
     

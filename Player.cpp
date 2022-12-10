@@ -43,7 +43,7 @@ void Player::deployTroops(int troopsCount){
         if (choice == 0){
             return;
         }
-        if (choice >= territories.size()){
+        if (choice > territories.size()){
             std::cout << "WRONG TERRITORY !" << std::endl;
             std::cout << std::endl;
             deployTroops(troopsCount);
@@ -76,7 +76,7 @@ void Player::showStatus(){
 }
 
 int Player::setDraftCount(){
-    int draftCount{3};
+    int draftCount{std::max(3, static_cast<int>(territories.size() / 3))};
     draftCount += checkForContinents();
     return draftCount;
 }
@@ -85,16 +85,35 @@ int Player::checkForContinents(){
     int continentBouns{};
     for (auto& continent : continentBonusTemplate){
         bool isComplete {true};
-        for (int territoryNumber : continent.first){
-            if (std::find(territoryNumbers.begin(), territoryNumbers.end(), territoryNumber) != territoryNumbers.end())
-                continue;
-            else:
+        for (int territoryNumber : continent.second){
+            if (std::find(territoryNumbers.begin(), territoryNumbers.end(), territoryNumber) == territoryNumbers.end()){
                 isComplete = false;
                 break;
+            }
+        
         }
         if (isComplete) {
-            continentBouns += continent.second;
-            std::cout << "getting " << continent.second << "bonus troops" << std::endl;
+            int bonus{};
+            if (continent.first == "North America"){
+                bonus = 5;
+            }
+            if (continent.first == "South America"){
+                bonus = 2;
+            }
+            if (continent.first == "Europe"){
+                bonus = 5;
+            }
+            if (continent.first == "Africa"){
+                bonus = 3;
+            }
+            if (continent.first == "Asia"){
+                bonus = 7;
+            }
+            if (continent.first == "Australia"){
+                bonus = 2;
+            }
+            continentBouns += bonus;
+            std::cout << "getting bonus troops from " << continent.first << std::endl;
         }
     }
     return continentBouns;

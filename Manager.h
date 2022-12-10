@@ -18,7 +18,7 @@ class Manager {
         void createPlayer(int);
         void setBoard();
         void distributeTerritories();
-        void deploytroops();
+        void deployTroops();
         int generateRandomNumber(int, int);
         Territory& getTerritoryByName(std::string);
         Territory& getTerritoryByNumber(int);

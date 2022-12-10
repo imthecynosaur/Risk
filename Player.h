@@ -18,13 +18,15 @@ class Player{
 
     private:
         int number;
-        bool turn {false};
+        bool turn {};
         std::vector<Territory> territories;
         std::vector<int> territoryNumbers;
+        
 
-        const std::unordered_map<std::vector<int>, int> continentBonusTemplate {{{11, 12, 13, 14, 15, 16, 17, 18 , 19}, 5},
-        {{61, 62, 63, 64}, 2}, {{51, 52, 53, 54, 55, 56, 57, 58, 59, 510, 511, 512}, 7},
-        {{41, 42, 43, 44, 45, 46}, 3}, {{31, 32, 33, 34, 35, 36, 37}, 5}, {{21, 22, 23, 24}, 2}};
+
+        const std::unordered_map<std::string, std::vector<int>> continentBonusTemplate {{"North America", {11, 12, 13, 14, 15, 16, 17, 18 , 19}},
+        {"Australia", {61, 62, 63, 64}}, {"Asia", {51, 52, 53, 54, 55, 56, 57, 58, 59, 510, 511, 512}},
+        {"Africa", {41, 42, 43, 44, 45, 46}}, {"Europe", {31, 32, 33, 34, 35, 36, 37}}, {"South America", {21, 22, 23, 24}}};
 
 
 

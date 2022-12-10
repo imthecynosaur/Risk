@@ -4,8 +4,8 @@ void Manager::startGame(int playerCount){
     createPlayer(playerCount);
     setBoard();
     distributeTerritories();
-    // deploytroops();
-    players[0].deployTroops(players[0].setDraftCount());
+    // deployTroops();
+    gameLoop();
 }
 
 void Manager::gameLoop(){
@@ -16,7 +16,7 @@ void Manager::gameLoop(){
     }
 }
 
-void Manager::deploytroops(){
+void Manager::deployTroops(){
     int initialTroops{};
     switch (players.size())
     {
