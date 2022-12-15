@@ -24,7 +24,7 @@ class Manager {
         Territory& getTerritoryByNumber(int);
         void gameLoop();
         bool winCondition {false};
-        bool checkForWin();
+        void checkForWin();
     
 
 
@@ -56,22 +56,22 @@ class Manager {
 
 
         const std::unordered_map<std::string, std::vector<int>> NorthAmericaNeighbourTemplate {{"Alaska", {12, 16, 56}}, {"Northwest Territory", {11, 12, 15, 17}},
-        {"GreenLand", {16, 17, 18, 32}}, {"Alberta", {11, 17, 19}}, {"Ontario", {12, 14, 15, 16, 18, 19}}, {"Quebec", {15, 17, 14}}, {"Western US",{12, 13, 14, 17}},
+        {"GreenLand", {16, 17, 18, 32}}, {"Alberta", {11, 16, 17, 19}}, {"Ontario", {12, 14, 15, 16, 18, 19}}, {"Quebec", {15, 17, 14}}, {"Western US",{12, 13, 14, 17}},
         {"Eastern US", {17, 18, 19, 13}}, {"Central America", {19, 14, 24}}};
 
         const std::unordered_map<std::string, std::vector<int>> SouthAmericaNeighbourTemplate {{"Venezuela", {13, 22, 23}}, {"Brazil", {24, 23, 21, 45}},
-        {"Peru", {24, 22, 21}}, {"Argentina", {22, 23, 24}}};
+        {"Peru", {24, 22, 21}}, {"Argentina", {22, 23}}};
 
         const std::unordered_map<std::string, std::vector<int>> EuropeNeighbourTemplate {{"IceLand", {15, 31, 34}}, {"Scandinavia", {31, 32, 33, 36}},
         {"Great Britain", {32, 33, 34, 37}}, {"Northern Europe", {31, 34, 35, 36, 37}}, {"Ukraine", {33, 34, 35, 511, 51, 57}}, {"Western Europe" , {31, 33, 35, 45}},
-        {"Southern Europe", {36, 37, 45, 43, 57}}};
+        {"Southern Europe", {33, 36, 37, 45, 43, 57}}};
 
         const std::unordered_map<std::string, std::vector<int>> AfricaNeighbourTemplate {{"North Africa", {22, 37, 35, 42, 41, 43}}, {"Egypt", {35, 42, 45, 57}},
-        {"Congo",{45, 42, 46}}, {"East Africa", {41, 43, 46, 44, 57}}, {"South Africa", {41, 42, 44}}, {"Madagascar", {42, 46}}};
+        {"Congo",{45, 42, 46}}, {"East Africa", {41, 43, 45, 46, 44, 57}}, {"South Africa", {41, 42, 44}}, {"Madagascar", {42, 46}}};
 
         const std::unordered_map<std::string, std::vector<int>> AsiaNeighbourTemplate {{"Yakutsk", {510, 54, 56}}, {"Ural", {36, 51, 52, 510}},
         {"Siberia", {52, 54, 58, 511, 512}}, {"Irkutsk", {56, 58, 510, 512}}, {"Kamchatka", {11, 54, 58, 55, 512}}, {"Afghanistan", {53, 52, 511, 57, 36}},
-        {"China", {51, 53, 58, 59, 510}}, {"Mongolia", {52, 54, 56, 55, 510}}, {"Japan", {56, 58}}, {"Middle east", {36, 35, 43, 42, 51, 53}},
+        {"China", {51, 53, 58, 59, 510, 511}}, {"Mongolia", {52, 54, 56, 55, 510}}, {"Japan", {56, 58}}, {"Middle east", {36, 35, 43, 42, 51, 53}},
         {"India", {51, 52, 57, 59}}, {"Siam", {52, 53, 62}}};
 
         const std::unordered_map<std::string, std::vector<int>> AustraliaNeighbourTemplate {{"Indonesia", {63, 64, 59}}, {"New Guinea", {62, 64, 61}},

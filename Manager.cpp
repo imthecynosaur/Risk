@@ -12,6 +12,18 @@ void Manager::gameLoop(){
     while(!winCondition){
         for (auto& player : players){
             player.deployTroops(player.setDraftCount());
+            player.attack();
+            checkForWin();
+        }
+    }
+}
+
+void Manager::checkForWin(){
+    for (auto& player : players){
+        if (player.getTerritories().size() >= 27){
+            std::cout << "player " << player.getNumber() << " is winner" << std::endl;
+            winCondition = true;
+            system("pause");
         }
     }
 }

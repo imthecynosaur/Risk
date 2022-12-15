@@ -119,6 +119,60 @@ int Player::checkForContinents(){
     return continentBouns;
 }
 
+// bool Player::territoryEquality(Territory& fristTerritroy, Territory& secondTerritory){
+//     return (fristTerritroy.getName() == secondTerritory.getName());
+// }
+
+bool territoryEquality(Territory& fristTerritroy, Territory& secondTerritory){
+    return (fristTerritroy.getName() == secondTerritory.getName());
+}
+
+void Player::attack(){
+    std::vector<Territory> eligibleTerritories{};
+    for (auto& territory : territories){
+        if (territory.getTroops() > 1){
+            for (auto& neighbourTerritory : territory.getNeighbours()){
+                if (std::find(territoryNumbers.begin(), territoryNumbers.end(), neighbourTerritory.getNumber()) == territoryNumbers.end()){
+                    eligibleTerritories.push_back(territory);
+                    eligibleTerritories.erase(std::unique(eligibleTerritories.begin(), eligibleTerritories.end(), territoryEquality), eligibleTerritories.end());
+                    break;
+
+                }
+            }
+        }
+    }
+
+    int counter{1};
+    int choice{};
+
+    std::cout << "ELIGIBLE TERRITORIES :" << std::endl;
+    for (auto& territory : eligibleTerritories){
+        std::cout << counter << "- " << territory.getName() << std::endl;
+        counter++;
+    }
+    std::cout << std::endl;
+
+    std::cin >> choice;
+    Territory& chosenTerritory = eligibleTerritories[choice-1];
+
+
+    std::vector<Territory> availableEnemies{};
+    std::cout << "AVAILABLE ENEMIES :" << std::endl;
+    counter = 1;
+    for (auto& territory : chosenTerritory.getNeighbours()){
+        if (std::find(territoryNumbers.begin(), territoryNumbers.end(), territory.getNumber()) == territoryNumbers.end()){
+            std::cout << counter << "- " << territory.getName() << std::endl;
+            availableEnemies.push_back(territory);
+            counter++;
+        }
+    }
+    std::cout << std::endl;
+    std::cin >> choice;
+    Territory& enemyTerritory = availableEnemies[choice-1];
+
+    std::cout << "attacking " << enemyTerritory.getName() << " from " << chosenTerritory.getName() << std::endl;
+}
+
 
 
 

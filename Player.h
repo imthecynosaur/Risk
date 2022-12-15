@@ -15,6 +15,7 @@ class Player{
         void showStatus();
         int setDraftCount();
         int checkForContinents();
+        void attack();
 
     private:
         int number;
